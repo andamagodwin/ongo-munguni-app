@@ -12,10 +12,10 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Songs',
+          title: 'Ongo',
           tabBarIcon: ({ color }) => <TabBarIcon name="music" color={color} />,
           headerRight: () => (
-            <Link href="/modal" asChild>
+            <Link href="/settings" asChild>
               <HeaderButton />
             </Link>
           ),

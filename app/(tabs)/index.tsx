@@ -21,9 +21,9 @@ export default function Home() {
 
   return (
     <>
-      <Stack.Screen options={{ title: 'Songs' }} />
+      <Stack.Screen options={{ title: 'Ongo Munguni' }} />
       <View className="flex-1 bg-white">
-        <View className="p-4 border-b border-gray-200">
+        <View className="p-4">
           <TextInput
             className="bg-gray-100 p-2 rounded-lg"
             placeholder="Search by number, title, lyrics..."
