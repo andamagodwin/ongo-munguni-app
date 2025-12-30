@@ -1,0 +1,18 @@
+[
+    {
+        "number": 1,
+        "title": "Amazing Grace (Lugbara Version)",
+        "category": "Hymn",
+        "lyrics": "Amazing grace! How sweet the sound\nThat saved a wretch like me!\nI once was lost, but now am found;\nWas blind, but now I see.",
+        "key": "G Major",
+        "author": "John Newton"
+    },
+    {
+        "number": 2,
+        "title": "Munguni O'a (God is Good)",
+        "category": "Praise",
+        "lyrics": "Munguni o'a, Munguni o'a...\n(Lyrics placeholder)",
+        "key": "C Major",
+        "author": "Traditional"
+    }
+]

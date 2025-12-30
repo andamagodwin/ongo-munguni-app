@@ -1,4 +1,5 @@
 import '../global.css';
+import { RealmProvider } from '../store/realm';
 
 import { Stack } from 'expo-router';
 
@@ -9,9 +10,11 @@ export const unstable_settings = {
 
 export default function RootLayout() {
   return (
-    <Stack>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-    </Stack>
+    <RealmProvider>
+      <Stack>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+      </Stack>
+    </RealmProvider>
   );
 }
