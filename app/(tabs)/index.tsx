@@ -25,7 +25,7 @@ export default function Home() {
       <View className="flex-1 bg-white">
         <View className="p-4">
           <TextInput
-            className="bg-gray-100 p-2 rounded-lg"
+            className="bg-gray-50 p-4 rounded-lg"
             placeholder="Search by number, title, lyrics..."
             value={search}
             onChangeText={setSearch}
