@@ -1,20 +1,28 @@
 import '../global.css';
 import { RealmProvider } from '../store/realm';
-
 import { Stack } from 'expo-router';
+import { useThemeStore } from '../store/theme';
+import { useColorScheme } from 'nativewind';
+import { useEffect } from 'react';
 
 export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
   initialRouteName: '(tabs)',
 };
 
 export default function RootLayout() {
+  const { primaryColor, isDarkMode } = useThemeStore();
+  const { setColorScheme } = useColorScheme();
+
+  useEffect(() => {
+    setColorScheme(isDarkMode ? 'dark' : 'light');
+  }, [isDarkMode]);
+
   return (
     <RealmProvider>
       <Stack
         screenOptions={{
           headerStyle: {
-            backgroundColor: '#7c3aed',
+            backgroundColor: primaryColor,
           },
           headerTintColor: '#fff',
           headerShadowVisible: false,

@@ -46,10 +46,10 @@ export default function Favorites() {
           )
         }}
       />
-      <View className="flex-1 bg-white">
+      <View className="flex-1 bg-white dark:bg-black">
         {favoriteSongs.length === 0 ? (
           <View className="flex-1 items-center justify-center p-4">
-            <Text className="text-gray-500 text-lg">No favorites yet.</Text>
+            <Text className="text-gray-500 text-lg dark:text-gray-400">No favorites yet.</Text>
           </View>
         ) : (
           <FlatList
