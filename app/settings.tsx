@@ -125,7 +125,7 @@ export default function Settings() {
         ListHeaderComponent={ThemeSelector}
         keyExtractor={(item, index) => item.label + index}
         renderSectionHeader={({ section: { title } }) => (
-          <Text className="px-4 py-3 text-xs font-bold text-gray-500 uppercase mt-4">
+          <Text className="px-4 py-3 text-xs font-poppins-bold text-gray-500 uppercase mt-4">
             {title}
           </Text>
         )}
@@ -141,10 +141,10 @@ export default function Settings() {
                 <View className={`w-8 h-8 rounded-lg items-center justify-center mr-3`} style={{ backgroundColor: dataItem.color ? '#fef2f2' : (isDarkMode ? `${primaryColor}30` : `${primaryColor}20`) }}>
                   <FontAwesome name={dataItem.icon} size={16} color={dataItem.color || primaryColor} />
                 </View>
-                <Text className={`text-base ${dataItem.color ? 'text-red-500' : 'text-gray-900 dark:text-white'}`}>{dataItem.label}</Text>
+                <Text className={`text-base font-sans ${dataItem.color ? 'text-red-500' : 'text-gray-900 dark:text-white'}`}>{dataItem.label}</Text>
               </View>
               <View className="flex-row items-center">
-                {dataItem.value && <Text className="text-gray-500 mr-2">{dataItem.value}</Text>}
+                {dataItem.value && <Text className="text-gray-500 mr-2 font-sans">{dataItem.value}</Text>}
                 {!dataItem.value && <FontAwesome name="chevron-right" size={12} color="#4b5563" />}
               </View>
             </Pressable>

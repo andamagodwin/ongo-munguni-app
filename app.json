@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "ongo-munguni-app",
+    "name": "OngoMunguni",
     "slug": "ongo-munguni-app",
     "version": "1.0.0",
     "scheme": "ongo-munguni-app",
@@ -23,7 +23,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#7c3aed"
     },
     "assetBundlePatterns": [
       "**/*"

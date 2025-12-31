@@ -36,13 +36,11 @@ export const SongListItem = ({ song }: SongListItemProps) => {
                         className="h-10 w-10 rounded-md items-center justify-center mr-4"
                         style={{ backgroundColor: `${primaryColor}20` }}
                     >
-                        <Text className="text-lg font-bold" style={{ color: primaryColor }}>#{song.number}</Text>
+                        <Text className="text-lg font-poppins-bold" style={{ color: primaryColor }}>#{song.number}</Text>
                     </View>
                     <View className="flex-1">
-                        <Text className="text-lg font-semibold text-gray-900 dark:text-white" numberOfLines={1}>
-                            {song.title}
-                        </Text>
-                        <Text className="text-sm text-gray-500">{song.category}</Text>
+                        <Text className="text-base font-poppins-medium text-gray-900 dark:text-white" numberOfLines={1}>{song.title}</Text>
+                        <Text className="text-sm text-gray-500 font-sans">{song.category}</Text>
                     </View>
                 </View>
 

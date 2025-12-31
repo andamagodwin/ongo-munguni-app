@@ -51,13 +51,13 @@ export default function SongDetail() {
                 <ScrollView className="flex-1 p-4 mb-20">
                     <View className="mb-6 items-center">
                         <View className="px-3 py-1 rounded-full mb-2" style={{ backgroundColor: `${primaryColor}20` }}>
-                            <Text className="font-bold text-sm" style={{ color: primaryColor }}>Song #{song.number}</Text>
+                            <Text className="font-poppins-bold text-sm" style={{ color: primaryColor }}>Song #{song.number}</Text>
                         </View>
-                        <Text className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-1">{song.title}</Text>
-                        <Text className="text-gray-500 text-center">{song.category}</Text>
+                        <Text className="text-2xl font-poppins-bold text-center text-gray-900 dark:text-white mb-1">{song.title}</Text>
+                        <Text className="text-gray-500 text-center font-sans">{song.category}</Text>
                     </View>
 
-                    <Text style={{ fontSize, lineHeight: fontSize * 1.5 }} className="text-gray-800 dark:text-gray-200 text-center pb-10">
+                    <Text style={{ fontSize, lineHeight: fontSize * 1.5 }} className="text-gray-800 dark:text-gray-200 text-center pb-10 font-sans">
                         {song.lyrics}
                     </Text>
                 </ScrollView>
