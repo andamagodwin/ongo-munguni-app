@@ -10,12 +10,18 @@ export const unstable_settings = {
 };
 
 export default function RootLayout() {
-  const { primaryColor, isDarkMode } = useThemeStore();
+  const { primaryColor, isDarkMode, hasHydrated } = useThemeStore();
   const { setColorScheme } = useColorScheme();
 
   useEffect(() => {
-    setColorScheme(isDarkMode ? 'dark' : 'light');
-  }, [isDarkMode]);
+    if (hasHydrated) {
+      setColorScheme(isDarkMode ? 'dark' : 'light');
+    }
+  }, [isDarkMode, hasHydrated]);
+
+  if (!hasHydrated) {
+    return null; // Or a SplashScreen
+  }
 
   return (
     <RealmProvider>

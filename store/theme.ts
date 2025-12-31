@@ -18,8 +18,10 @@ interface ThemeState {
     themeName: ThemeColorKey;
     primaryColor: string;
     isDarkMode: boolean;
+    hasHydrated: boolean;
     setTheme: (name: ThemeColorKey) => void;
     toggleDarkMode: () => void;
+    setHasHydrated: (state: boolean) => void;
 }
 
 export const useThemeStore = create<ThemeState>()(
@@ -28,15 +30,20 @@ export const useThemeStore = create<ThemeState>()(
             themeName: 'violet',
             primaryColor: THEME_COLORS.violet, // Default
             isDarkMode: false,
+            hasHydrated: false,
             setTheme: (name) => set({
                 themeName: name,
                 primaryColor: THEME_COLORS[name]
             }),
             toggleDarkMode: () => set((state) => ({ isDarkMode: !state.isDarkMode })),
+            setHasHydrated: (state) => set({ hasHydrated: state })
         }),
         {
             name: 'theme-storage',
             storage: createJSONStorage(() => AsyncStorage),
+            onRehydrateStorage: () => (state) => {
+                state?.setHasHydrated(true);
+            }
         }
     )
 );

@@ -1,5 +1,5 @@
 import { useLocalSearchParams, Stack } from 'expo-router';
-import { View, Text, ScrollView, Pressable, Platform } from 'react-native';
+import { View, Text, ScrollView, Pressable, Platform, Share, Alert } from 'react-native';
 import { useObject, useRealm } from '../../store/realm';
 import { Song } from '../../store/realm/schema';
 import { Realm } from '@realm/react';
@@ -28,6 +28,17 @@ export default function SongDetail() {
         realm.write(() => {
             song.isFavorite = !song.isFavorite;
         });
+    };
+
+    const shareSong = async () => {
+        try {
+            await Share.share({
+                message: `${song.title}\n\n${song.category}\n\n${song.lyrics}\n\nShared from Ongo Munguni App`,
+                title: song.title,
+            });
+        } catch (error: any) {
+            Alert.alert(error.message);
+        }
     };
 
     const increaseFontSize = () => setFontSize(prev => Math.min(prev + 2, 40));
@@ -95,6 +106,10 @@ export default function SongDetail() {
                             size={24}
                             color={song.isFavorite ? "#ef4444" : (isDarkMode ? "#9ca3af" : "#9ca3af")}
                         />
+                    </Pressable>
+
+                    <Pressable onPress={shareSong} className="p-2 active:bg-gray-100 dark:active:bg-gray-700 rounded-full ml-2">
+                        <FontAwesome name="share-alt" size={24} color={isDarkMode ? "#9ca3af" : "#4b5563"} />
                     </Pressable>
                 </View>
             </View>
