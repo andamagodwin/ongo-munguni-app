@@ -36,10 +36,12 @@ export default function SongDetail() {
             <Stack.Screen options={{ title: song.title }} />
             <View className="flex-1 bg-white relative">
                 <ScrollView className="flex-1 p-4 mb-20">
-                    <View className="mb-6">
-                        <Text className="text-gray-500 text-center text-lg font-bold mb-1">Song #{song.number}</Text>
-                        <Text className="text-2xl font-bold text-center mb-2">{song.title}</Text>
-                        <Text className="text-gray-400 text-center">{song.category} • {song.key || 'No Key'}</Text>
+                    <View className="mb-6 items-center">
+                        <View className="bg-violet-100 px-3 py-1 rounded-full mb-2">
+                            <Text className="text-violet-700 font-bold text-sm">Song #{song.number}</Text>
+                        </View>
+                        <Text className="text-2xl font-bold text-center text-gray-900 mb-1">{song.title}</Text>
+                        <Text className="text-gray-500 text-center">{song.category}</Text>
                     </View>
 
                     <Text style={{ fontSize, lineHeight: fontSize * 1.5 }} className="text-gray-800 text-center pb-10">
@@ -58,17 +60,17 @@ export default function SongDetail() {
                         elevation: 5
                     }}
                 >
-                    <Pressable onPress={decreaseFontSize} className="p-2 active:bg-gray-100 rounded-full">
-                        <FontAwesome name="minus" size={20} color="#374151" />
+                    <Pressable onPress={decreaseFontSize} className="p-3 bg-gray-50 active:bg-violet-100 rounded-full">
+                        <FontAwesome name="minus" size={16} color="#4b5563" />
                     </Pressable>
 
                     <View className="items-center">
-                        <Text className="text-xs text-gray-500 mb-1">Size: {fontSize}</Text>
-                        <Text className="font-bold text-gray-700">Aa</Text>
+                        <Text className="text-xs text-gray-400 mb-1">Size: {fontSize}</Text>
+                        <Text className="font-bold text-gray-800 text-lg">Aa</Text>
                     </View>
 
-                    <Pressable onPress={increaseFontSize} className="p-2 active:bg-gray-100 rounded-full">
-                        <FontAwesome name="plus" size={20} color="#374151" />
+                    <Pressable onPress={increaseFontSize} className="p-3 bg-gray-50 active:bg-violet-100 rounded-full">
+                        <FontAwesome name="plus" size={16} color="#4b5563" />
                     </Pressable>
 
                     <View className="w-[1px] h-8 bg-gray-200 mx-2" />

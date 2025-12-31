@@ -23,9 +23,11 @@ export const SongListItem = ({ song }: SongListItemProps) => {
 
     return (
         <Link href={`/song/${song._id.toHexString()}`} asChild>
-            <Pressable className="flex-row items-center justify-between p-4 border-b border-gray-200 active:bg-gray-100">
+            <Pressable className="flex-row items-center justify-between p-4 border-b border-gray-100 active:bg-violet-50">
                 <View className="flex-row items-center flex-1">
-                    <Text className="text-lg font-bold text-gray-500 w-12">{song.number}</Text>
+                    <View className="h-10 w-10 rounded-full items-center justify-center mr-4">
+                        <Text className="text-lg font-bold text-violet-700">#{song.number}</Text>
+                    </View>
                     <View className="flex-1">
                         <Text className="text-lg font-semibold text-gray-900" numberOfLines={1}>
                             {song.title}
@@ -37,7 +39,7 @@ export const SongListItem = ({ song }: SongListItemProps) => {
                 <Pressable onPress={toggleFavorite} className="p-2">
                     <FontAwesome
                         name={song.isFavorite ? "heart" : "heart-o"}
-                        size={24}
+                        size={18}
                         color={song.isFavorite ? "#ef4444" : "#9ca3af"}
                     />
                 </Pressable>

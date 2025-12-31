@@ -11,7 +11,15 @@ export const unstable_settings = {
 export default function RootLayout() {
   return (
     <RealmProvider>
-      <Stack>
+      <Stack
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#7c3aed',
+          },
+          headerTintColor: '#fff',
+          headerShadowVisible: false,
+        }}
+      >
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="settings" options={{ presentation: 'modal' }} />
       </Stack>
