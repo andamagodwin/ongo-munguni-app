@@ -18,6 +18,13 @@ export default function TabLayout() {
           backgroundColor: primaryColor,
         },
         headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontFamily: 'Poppins-Bold',
+        },
+        tabBarLabelStyle: {
+          fontFamily: 'Poppins-Medium',
+          fontSize: 12,
+        },
         tabBarStyle: {
           backgroundColor: isDarkMode ? '#000000' : '#ffffff',
           borderTopColor: isDarkMode ? '#1f2937' : '#e5e7eb',

@@ -23,7 +23,7 @@ const ThemeSelector = () => {
 
   return (
     <View>
-      <Text className="px-4 py-3 text-xs font-bold text-gray-500 uppercase mt-4">Theme</Text>
+      <Text className="px-4 py-3 text-xs font-poppins-bold text-gray-500 uppercase mt-4">Theme</Text>
       <View className="px-4 py-4 bg-white dark:bg-gray-800 border-y border-gray-100 dark:border-gray-700 flex-row justify-between">
         {(Object.keys(THEME_COLORS) as ThemeColorKey[]).map((colorKey) => (
           <Pressable

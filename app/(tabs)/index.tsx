@@ -41,7 +41,7 @@ export default function Home() {
         <View className="p-4 z-10">
           <View className="flex-row items-center gap-2">
             <TextInput
-              className="flex-1 bg-gray-50 dark:bg-gray-800 dark:text-white p-4 rounded-lg"
+              className="flex-1 bg-gray-50 dark:bg-gray-800 dark:text-white p-4 rounded-lg font-sans"
               placeholder="Search by number, title, lyrics..."
               placeholderTextColor="#9ca3af"
               value={search}
@@ -62,7 +62,7 @@ export default function Home() {
           {/* Custom Dropdown */}
           {isSortDropdownOpen && (
             <View className="absolute top-20 right-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 py-2 w-48" style={{ elevation: 5 }}>
-              <Text className="px-4 py-2 text-xs font-bold text-gray-400 uppercase">Sort Order</Text>
+              <Text className="px-4 py-2 text-xs font-poppins-bold text-gray-400 uppercase">Sort Order</Text>
 
               <Pressable
                 onPress={() => toggleSort('number')}
@@ -71,7 +71,7 @@ export default function Home() {
                   backgroundColor: pressed || sortOption === 'number' ? `${primaryColor}10` : (isDarkMode ? '#1f2937' : 'white')
                 })}
               >
-                <Text className={`font-bold`} style={{ color: sortOption === 'number' ? primaryColor : (isDarkMode ? 'white' : '#374151') }}>Number (Default)</Text>
+                <Text className={`font-poppins-bold`} style={{ color: sortOption === 'number' ? primaryColor : (isDarkMode ? 'white' : '#374151') }}>Number (Default)</Text>
                 {sortOption === 'number' && <FontAwesome name="check" size={14} color={primaryColor} />}
               </Pressable>
 
@@ -82,7 +82,7 @@ export default function Home() {
                   backgroundColor: pressed || sortOption === 'title' ? `${primaryColor}10` : (isDarkMode ? '#1f2937' : 'white')
                 })}
               >
-                <Text className={`font-bold`} style={{ color: sortOption === 'title' ? primaryColor : (isDarkMode ? 'white' : '#374151') }}>Title (A-Z)</Text>
+                <Text className={`font-poppins-bold`} style={{ color: sortOption === 'title' ? primaryColor : (isDarkMode ? 'white' : '#374151') }}>Title (A-Z)</Text>
                 {sortOption === 'title' && <FontAwesome name="check" size={14} color={primaryColor} />}
               </Pressable>
             </View>
