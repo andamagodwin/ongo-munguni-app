@@ -57,14 +57,25 @@ export default function SongDetail() {
                         <Text className="text-gray-500 text-center font-sans">{song.category}</Text>
                     </View>
 
+                    {/* Format lyrics with verse spacing */}
                     <Text style={{ fontSize, lineHeight: fontSize * 1.5 }} className="text-gray-800 dark:text-gray-200 text-center pb-10 font-sans">
-                        {song.lyrics}
+                        {song.lyrics.split(/(\d+\.)/).map((part, index) => {
+                            // If it's a verse number (like "1.", "2.", etc.)
+                            if (/^\d+\.$/.test(part)) {
+                                return (
+                                    <Text key={index}>
+                                        {index > 1 ? '\n\n' : ''}{part}
+                                    </Text>
+                                );
+                            }
+                            return part;
+                        })}
                     </Text>
                 </ScrollView>
 
                 {/* Floating Task Bar */}
                 <View
-                    className="absolute bottom-6 left-4 right-4 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 flex-row items-center justify-around p-4"
+                    className="absolute bottom-4 left-4 right-4 bg-white dark:bg-gray-800 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700 flex-row items-center justify-around p-2"
                     style={{
                         shadowColor: "#000",
                         shadowOffset: { width: 0, height: 2 },
@@ -75,7 +86,7 @@ export default function SongDetail() {
                 >
                     <Pressable
                         onPress={decreaseFontSize}
-                        className="p-3 bg-gray-50 dark:bg-gray-800 rounded-full"
+                        className="p-3 bg-white dark:bg-gray-800 rounded-full"
                         style={({ pressed }) => ({
                             backgroundColor: pressed ? `${primaryColor}20` : (isDarkMode ? '#374151' : '#f9fafb')
                         })}
@@ -90,7 +101,7 @@ export default function SongDetail() {
 
                     <Pressable
                         onPress={increaseFontSize}
-                        className="p-3 bg-gray-50 dark:bg-gray-800 rounded-full"
+                        className="p-3 bg-white dark:bg-gray-800 rounded-full"
                         style={({ pressed }) => ({
                             backgroundColor: pressed ? `${primaryColor}20` : (isDarkMode ? '#374151' : '#f9fafb')
                         })}

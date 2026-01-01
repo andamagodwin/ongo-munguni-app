@@ -40,13 +40,20 @@ export default function Home() {
       <View className="flex-1 bg-white dark:bg-black relative">
         <View className="p-4 z-10">
           <View className="flex-row items-center gap-2">
-            <TextInput
-              className="flex-1 bg-gray-50 dark:bg-gray-800 dark:text-white p-4 rounded-lg font-sans"
-              placeholder="Search by number, title, lyrics..."
-              placeholderTextColor="#9ca3af"
-              value={search}
-              onChangeText={setSearch}
-            />
+            <View className="flex-1 flex-row items-center bg-gray-50 dark:bg-gray-800 rounded-lg pr-2">
+              <TextInput
+                className="flex-1 dark:text-white p-4 font-sans"
+                placeholder="Search by number, title, lyrics..."
+                placeholderTextColor="#9ca3af"
+                value={search}
+                onChangeText={setSearch}
+              />
+              {search.length > 0 && (
+                <Pressable onPress={() => setSearch('')} className="p-2">
+                  <FontAwesome name="times-circle" size={20} color="#9ca3af" />
+                </Pressable>
+              )}
+            </View>
             <Pressable
               onPress={() => setSortDropdownOpen(!isSortDropdownOpen)}
               className={`p-4 rounded-lg flex-row items-center gap-2 border`}

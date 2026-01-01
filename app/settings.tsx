@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Platform, View, Text, SectionList, Pressable, Alert, Linking, ScrollView } from 'react-native';
+import { Platform, View, Text, SectionList, Pressable, Alert, Linking, Share } from 'react-native';
 import { useRealm, useQuery } from '../store/realm';
 import { useThemeStore, THEME_COLORS, ThemeColorKey } from '../store/theme';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
@@ -61,6 +61,12 @@ export default function Settings() {
           icon: 'code',
           onPress: () => Linking.openURL('https://github.com/andamagodwin').catch(() => { }),
         },
+        {
+          label: 'Song Editor',
+          value: 'Opifeni Timothy',
+          icon: 'pencil',
+          onPress: () => { },
+        },
       ],
     },
     {
@@ -75,42 +81,20 @@ export default function Settings() {
       ]
     },
     {
-      title: 'Data Management',
-      data: [
-        {
-          label: 'Reset Database',
-          icon: 'refresh',
-          color: '#ef4444',
-          onPress: () => {
-            Alert.alert(
-              'Reset Database',
-              'This will delete all data and reset to the initial song list. Are you sure?',
-              [
-                { text: 'Cancel', style: 'cancel' },
-                {
-                  text: 'Reset',
-                  style: 'destructive',
-                  onPress: () => {
-                    realm.write(() => {
-                      realm.deleteAll();
-                    });
-                    Alert.alert('Success', 'Database reset. Please restart the app to re-seed initial data.');
-                  },
-                },
-              ]
-            );
-          },
-        },
-      ],
-    },
-    {
       title: 'Support',
       data: [
         {
           label: 'Share App',
           icon: 'share-alt',
-          onPress: () => {
-            Alert.alert('Share', 'Share functionality coming soon!');
+          onPress: async () => {
+            try {
+              await Share.share({
+                message: 'Check out OngoMunguni - A Lugbara Songbook App with 272 hymns!\n\nDownload: https://play.google.com/store/apps/details?id=com.andama.ongomunguniapp',
+                title: 'OngoMunguni - Lugbara Songbook',
+              });
+            } catch (error) {
+              console.log(error);
+            }
           }
         }
       ]

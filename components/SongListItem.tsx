@@ -33,7 +33,7 @@ export const SongListItem = ({ song }: SongListItemProps) => {
             >
                 <View className="flex-row items-center flex-1">
                     <View
-                        className="h-10 w-10 rounded-md items-center justify-center mr-4"
+                        className="h-10 w-20 rounded-md items-center justify-center mr-4"
                         style={{ backgroundColor: `${primaryColor}20` }}
                     >
                         <Text className="text-lg font-poppins-bold" style={{ color: primaryColor }}>#{song.number}</Text>
