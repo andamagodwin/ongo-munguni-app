@@ -1,7 +1,7 @@
 import { createRealmContext } from '@realm/react';
 import { Song } from './schema';
 import Realm from 'realm';
-import initialData from '../../assets/initialData.json';
+import songsData from '../../assets/songs.json';
 import { useEffect } from 'react';
 import React from 'react';
 
@@ -23,7 +23,7 @@ const RealmSeeder = ({ children }: { children: React.ReactNode }) => {
             const songs = realm.objects('Song');
             if (songs.isEmpty()) {
                 realm.write(() => {
-                    initialData.forEach((songData) => {
+                    songsData.forEach((songData) => {
                         realm.create('Song', {
                             _id: new Realm.BSON.ObjectId(),
                             ...songData,
